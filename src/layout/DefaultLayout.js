@@ -10,7 +10,7 @@ export const DefaultLayout = ({ children }) => {
       </header>
       <main className="main">{children}</main>
 
-      <footer class="py-3 my-4">
+      <footer className="py-3 my-4">
         <Footer />
       </footer>
     </div>
