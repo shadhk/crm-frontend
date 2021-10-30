@@ -11,7 +11,7 @@ const AddTicketForm = ({ handleOnSubmit, handleOnChange, frmDt, frmDataError }) 
       <h1 className="text-danger text-center">Add New Ticket</h1>
       <hr />
       <Form autoComplete="off" onSubmit={handleOnSubmit}>
-        <Form.Group as={Row}>
+        <Form.Group className="mb-2" as={Row}>
           <Form.Label column sm={3}>
             Subject
           </Form.Label>
@@ -20,7 +20,7 @@ const AddTicketForm = ({ handleOnSubmit, handleOnChange, frmDt, frmDataError }) 
             <Form.Text className="text-danger">{frmDataError.subject && "Subject is required"}</Form.Text>
           </Col>
         </Form.Group>
-        <Form.Group as={Row}>
+        <Form.Group className="mb-2" as={Row}>
           <Form.Label column sm={3}>
             Issue Found
           </Form.Label>
@@ -36,7 +36,7 @@ const AddTicketForm = ({ handleOnSubmit, handleOnChange, frmDt, frmDataError }) 
           <Form.Control as="textarea" name="detail" value={frmDt.detail} rows="5" placeholder="Enter Subject" onChange={handleOnChange} required />
         </Form.Group>
 
-        <div className="d-grid mt-3">
+        <div className="d-grid mt-4">
           <Button variant="info" size="lg" onClick={handleOnSubmit}>
             Block Level Button
           </Button>
