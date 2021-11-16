@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import AddTicketForm from "../../components/add-ticket-from/AddTicketForm"
+import AddTicketForm from "../../components/add-ticket-form/AddTicketForm"
 import PageBreadcrumb from "../../components/breadcrumb/Breadcrumb.comp"
 import { shortText } from "../../utils/validation"
 

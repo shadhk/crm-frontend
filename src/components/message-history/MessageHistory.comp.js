@@ -19,5 +19,5 @@ const MessageHistory = ({ msg }) => {
 export default MessageHistory
 
 MessageHistory.propTypes = {
-  msg: PropTypes.object.isRequired
+  msg: PropTypes.array.isRequired
 }
