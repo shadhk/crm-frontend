@@ -2,12 +2,16 @@ import React from "react"
 import { Navbar, Nav } from "react-bootstrap"
 import { useHistory } from "react-router-dom"
 import { LinkContainer } from "react-router-bootstrap"
+import { userLogout } from "../../api/userApi"
 import logo from "../../assets/img/logo.png"
 
 export const Header = () => {
   const history = useHistory()
 
   const logout = () => {
+    userLogout()
+    sessionStorage.removeItem("accessJWT")
+    localStorage.removeItem("crmSite")
     history.push("/")
   }
   return (
