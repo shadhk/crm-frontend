@@ -2,7 +2,7 @@ import React from "react"
 import { Breadcrumb } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 
-const PageBreadcrumb = ({ page }) => {
+export const PageBreadcrumb = ({ page }) => {
   return (
     <Breadcrumb>
       <LinkContainer to="/">

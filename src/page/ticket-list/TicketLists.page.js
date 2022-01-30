@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { fetchallTickets } from "./ticketAction"
+import { fetchAllTickets } from "./ticketAction"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import PageBreadcrumb from "../../components/breadcrumb/Breadcrumb.comp"
 import SearchForm from "../../components/search-form/SearchFormComp"
@@ -11,7 +11,7 @@ const TicketLists = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchallTickets())
+    dispatch(fetchAllTickets())
   }, [dispatch])
 
   return (
