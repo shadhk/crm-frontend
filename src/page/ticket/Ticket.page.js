@@ -12,7 +12,7 @@ import { fetchSingleTicket, closeTicket } from "../ticket-list/ticketAction"
 const Ticket = () => {
   const { tId } = useParams()
   const dispatch = useDispatch()
-  const { isLoading, error, selectedTicket, replyMsg } = useSelector(state => state.tickets)
+  const { isLoading, error, selectedTicket, replyMsg, replyTicketError } = useSelector(state => state.tickets)
 
   useEffect(() => {
     dispatch(fetchSingleTicket(tId))
@@ -33,6 +33,7 @@ const Ticket = () => {
         <Col>
           {isLoading && <Spinner as="span" variant="primary" animation="border" size="lg" role="status" />}
           {error && <Alert variant="danger">{error}</Alert>}
+          {replyTicketError && <Alert variant="danger">{replyTicketError}</Alert>}
           {replyMsg && <Alert variant="success">{replyMsg}</Alert>}
         </Col>
       </Row>
