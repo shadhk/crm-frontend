@@ -65,15 +65,16 @@ const ticketListSlice = createSlice({
       state.error = ""
       state.replyMsg = payload
     },
-    closeTicketFail: (state, { payload }) => {
+    resetResponseMsg: state => {
       state.isLoading = false
-      state.error = payload
+      state.replyTicketError = ""
+      state.replyMsg = ""
     }
   }
 })
 
 const { reducer, actions } = ticketListSlice
 
-export const { fetchTicketLoading, fetchTicketSuccess, fetchTicketFail, fetchSingleTicketLoading, fetchSingleTicketSuccess, fetchSingleTicketFail, replyTicketLoading, replyTicketSuccess, replyTicketFail, searchTickets, closeTicketLoading, closeTicketSuccess, closeTicketFail } = actions
+export const { fetchTicketLoading, fetchTicketSuccess, fetchTicketFail, fetchSingleTicketLoading, fetchSingleTicketSuccess, fetchSingleTicketFail, replyTicketLoading, replyTicketSuccess, replyTicketFail, searchTickets, closeTicketLoading, closeTicketSuccess, closeTicketFail, resetResponseMsg } = actions
 
 export default reducer

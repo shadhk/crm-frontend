@@ -7,6 +7,7 @@ import { UpdateTicket } from "../../components/update-ticket/UpdateTicket.comp"
 import { useParams } from "react-router-dom"
 
 import { fetchSingleTicket, closeTicket } from "../ticket-list/ticketAction"
+import { resetResponseMsg } from "../ticket-list/ticketSlice"
 
 // const ticket = tickets[0]
 const Ticket = () => {
@@ -16,7 +17,13 @@ const Ticket = () => {
 
   useEffect(() => {
     dispatch(fetchSingleTicket(tId))
-  }, [tId, dispatch])
+
+    return () => {
+      if (replyMsg || replyTicketError) {
+        dispatch(resetResponseMsg())
+      }
+    }
+  }, [tId, dispatch, replyTicketError, replyMsg])
 
   const closeTicketHandler = () => {
     dispatch(closeTicket(tId))

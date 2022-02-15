@@ -9,13 +9,14 @@ export const openNewTicket = frmData => dispatch => {
       ////calll Apiiii
       const res = await createNewTicket(frmData)
 
-      if (res.result === "error") {
+      if (res.status === "error") {
         return dispatch(openNewTicketFail(res.message))
       }
       dispatch(openNewTicketSuccess(res.message))
+      resolve(true)
     } catch (error) {
-      console.log(error)
       dispatch(openNewTicketFail(error.message))
+      reject(false)
     }
   })
 }
