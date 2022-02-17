@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import PropTypes from "prop-types"
 import { Container, Row, Col, Form, Button, Spinner, Alert } from "react-bootstrap"
@@ -77,7 +77,6 @@ const LoginForm = ({ formSwitcher }) => {
             </Button>
             {isLoading && <Spinner variant="primary" animation="border" />}
           </Form>
-          <hr />
         </Col>
       </Row>
       <Row>
@@ -85,6 +84,17 @@ const LoginForm = ({ formSwitcher }) => {
           <a style={{ textDecoration: "none" }} href="#!" onClick={() => formSwitcher("reset")}>
             Forgot Password?
           </a>
+        </Col>
+      </Row>
+      <Row className="py-2">
+        <Col>
+          <p>
+            Are you new here?
+            <Link style={{ textDecoration: "none" }} to="/registration">
+              {" "}
+              Register Now
+            </Link>
+          </p>
         </Col>
       </Row>
     </Container>

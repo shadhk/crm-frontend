@@ -5,6 +5,7 @@ import { PrivateRoute } from "./components/private-route/PrivateRoute.comp"
 import { Dashboard } from "./page/dashboard/Dashboard"
 import Entry from "./page/entry/Entry.page"
 import AddTicket from "./page/new-ticket/AddTicket"
+import Registration from "./page/registration/Registration.page"
 import TicketLists from "./page/ticket-list/TicketLists.page"
 import Ticket from "./page/ticket/Ticket.page"
 
@@ -15,6 +16,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Entry />
+          </Route>
+          <Route exact path="/registration">
+            <Registration />
           </Route>
           <PrivateRoute exact path="/dashboard">
             <Dashboard />
