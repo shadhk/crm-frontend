@@ -6,7 +6,7 @@ import { newUserRegistration } from "./userRegAction"
 
 const initialState = {
   name: "Shad Hussain Khan",
-  phone: "766937053",
+  phone: "7669370538",
   email: "shadkhan41@gmail.com",
   company: "TCS",
   address: "Hyderabad",
@@ -64,7 +64,18 @@ const RegistrationForm = () => {
 
   const handleOnSubmit = e => {
     e.preventDefault()
-    dispatch(newUserRegistration(newUser))
+
+    const { name, phone, email, company, address, password } = newUser
+
+    const newRegistration = {
+      name,
+      phone,
+      email,
+      company,
+      address,
+      password
+    }
+    dispatch(newUserRegistration(newRegistration))
   }
 
   return (
