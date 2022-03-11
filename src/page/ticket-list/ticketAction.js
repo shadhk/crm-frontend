@@ -6,7 +6,7 @@ export const fetchAllTickets = () => async dispatch => {
   dispatch(fetchTicketLoading())
   try {
     const res = await getAllTickets()
-    dispatch(fetchTicketSuccess(res.data.result))
+    res.data.result.length && dispatch(fetchTicketSuccess(res.data.result))
   } catch (error) {
     dispatch(fetchTicketFail(error.message))
   }

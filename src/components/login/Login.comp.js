@@ -81,9 +81,9 @@ const LoginForm = ({ formSwitcher }) => {
       </Row>
       <Row>
         <Col>
-          <a style={{ textDecoration: "none" }} href="#!" onClick={() => formSwitcher("reset")}>
+          <Link style={{ textDecoration: "none" }} to="/reset-password">
             Forgot Password?
-          </a>
+          </Link>
         </Col>
       </Row>
       <Row className="py-2">

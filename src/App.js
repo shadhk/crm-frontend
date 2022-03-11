@@ -9,6 +9,7 @@ import Registration from "./page/registration/Registration.page"
 import UserVerification from "./page/user-verification/UserVerification.page"
 import TicketLists from "./page/ticket-list/TicketLists.page"
 import Ticket from "./page/ticket/Ticket.page"
+import PasswordOtpForm from "./page/password-reset/PasswordOtpForm.page"
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route exact path="/registration">
             <Registration />
+          </Route>
+          <Route exact path="/reset-password">
+            <PasswordOtpForm />
           </Route>
           <Route exact path="/verification/:_id/:email">
             <UserVerification />

@@ -1,14 +1,36 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Container, Row, Col, Form, Button } from "react-bootstrap"
+import React, { useState } from "react"
+import { Container, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import { sendPasswordResetOtp } from "./passwordAction"
 
-const ResetPassword = ({ handleOnChange, handleOnResetSubmit, formSwitcher, email }) => {
+const ResetPassword = () => {
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState("")
+  const { isLoading, status, message } = useSelector(state => state.password)
+
+  const handleOnResetSubmit = e => {
+    e.preventDefault()
+    dispatch(sendPasswordResetOtp(email))
+  }
+
+  const handleOnChange = e => {
+    const { value } = e.target
+
+    setEmail(value)
+  }
+
   return (
     <Container>
       <Row>
         <Col>
           <h1 className="text-danger text-center">Reset Password</h1>
           <hr />
+
+          {message && <Alert variant={status === "success" ? "success" : "danger"}>{message}</Alert>}
+
+          {isLoading && <Spinner variant="primary" animation="border"></Spinner>}
+
           <Form autoComplete="off" onSubmit={handleOnResetSubmit}>
             <Form.Group>
               <Form.Label>Email Address</Form.Label>
@@ -24,9 +46,9 @@ const ResetPassword = ({ handleOnChange, handleOnResetSubmit, formSwitcher, emai
       </Row>
       <Row>
         <Col>
-          <a style={{ textDecoration: "none" }} href="#!" onClick={() => formSwitcher("login")}>
+          <Link style={{ textDecoration: "none" }} to="/">
             Login Now
-          </a>
+          </Link>
         </Col>
       </Row>
     </Container>
@@ -34,10 +56,3 @@ const ResetPassword = ({ handleOnChange, handleOnResetSubmit, formSwitcher, emai
 }
 
 export default ResetPassword
-
-ResetPassword.propTypes = {
-  handleOnChange: PropTypes.func.isRequired,
-  handleOnResetSubmit: PropTypes.func.isRequired,
-  formSwitcher: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired
-}

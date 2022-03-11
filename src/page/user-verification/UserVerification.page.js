@@ -22,7 +22,7 @@ const UserVerification = () => {
     }
 
     !response.status && apiCall()
-  }, [response])
+  }, [dt, response])
 
   //call api and send the _id to verify user
   return (
